@@ -7,7 +7,8 @@ Add following step to your workflow:
 ```yaml
 - uses: luccas-freitas/delete-older-releases@v0.0.1
   with:
-    repo: <owner>/<repoName> # defaults to current repo
+    owner: <owner>
+    repo: <repoName1>,<repoName2>,<repoName3>
     keep_latest: 3
     delete_tag_pattern: beta # defaults to ""
   env:
