@@ -1,9 +1,9 @@
-name: Delete Older Releases
+name: Remove older releases
 description: delete older releases of any repo
-author: dev-drprasad
+author: luccas-freitas
 
 branding:
-  color: red
+  color: purple
   icon: delete
 
 inputs:
