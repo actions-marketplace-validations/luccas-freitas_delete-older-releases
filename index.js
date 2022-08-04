@@ -19,7 +19,7 @@ if (!process.env.INPUT_REPOS) {
   process.exitCode = 1;
   return;
 }
-const repos = (process.env.INPUT_REPOS).split(",");
+const repos = process.env.INPUT_REPOS;
 
 if (!process.env.INPUT_KEEP_LATEST) {
   console.error("✋🏼  no `keep_latest` given. exiting...");
