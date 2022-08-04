@@ -95,15 +95,15 @@ async function deleteOlderReleases(keepLatest) {
     }
 
     if (releaseIdsAndTags.length === 0) {
-      console.error(`😕  no older releases found. exiting...`);
+      console.error(`😕  no older releases found for ${repo}. exiting...`);
     }
-    console.log(`🍻  found ${releaseIdsAndTags.length} older release(s)`);
+    console.log(`🍻  found ${releaseIdsAndTags.length} older release(s) for ${repo}`);
 
     for (let i = 0; i < releaseIdsAndTags.length; i++) {
       const { id: releaseId, tagName } = releaseIdsAndTags[i];
 
       try {
-        console.log(`starting to delete ${tagName} with id ${releaseId}`);
+        console.log(`${repo}: starting to delete ${tagName} with id ${releaseId}`);
 
         const _ = await fetch({
           ...commonOpts,
@@ -120,19 +120,19 @@ async function deleteOlderReleases(keepLatest) {
             });
           } catch (error) {
             console.error(
-              `🌶  failed to delete tag "${tagName}"  <- ${error.message}`
+              `🌶  failed to delete tag "${tagName}" for ${repo} <- ${error.message}`
             );
           }
         }
       } catch (error) {
         console.error(
-          `🌶  failed to delete release with id "${releaseId}"  <- ${error.message}`
+          `🌶  failed to delete release with id "${releaseId}" for ${repo} <- ${error.message}`
         );
       }
     }
 
     console.log(
-      `👍🏼  ${releaseIdsAndTags.length} older release(s) deleted successfully!`
+      `👍🏼  ${releaseIdsAndTags.length} older release(s) for ${repo} deleted successfully!`
     );
   }
 }
