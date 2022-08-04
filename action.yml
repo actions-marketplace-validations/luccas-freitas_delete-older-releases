@@ -1,5 +1,5 @@
-name: Remove older releases
-description: delete older releases of any repo
+name: Remove old releases
+description: remove old releases of any repo
 author: luccas-freitas
 
 branding:
