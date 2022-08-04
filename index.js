@@ -65,7 +65,7 @@ async function deleteOlderReleases(keepLatest) {
     try {
       let data = await fetch({
         ...commonOpts,
-        path: `/repo/${owner}/${repo}/releases?per_page=100`,
+        path: `/repos/${owner}/${repo}/releases?per_page=100`,
         method: "GET",
       });
       data = data || [];
@@ -112,7 +112,7 @@ async function deleteOlderReleases(keepLatest) {
 
         const _ = await fetch({
           ...commonOpts,
-          path: `/repo/${owner}/${repo}/releases/${releaseId}`,
+          path: `/repos/${owner}/${repo}/releases/${releaseId}`,
           method: "DELETE",
         });
 
@@ -120,7 +120,7 @@ async function deleteOlderReleases(keepLatest) {
           try {
             const _ = await fetch({
               ...commonOpts,
-              path: `/repo/${owner}/${repo}/git/refs/tags/${tagName}`,
+              path: `/repos/${owner}/${repo}/git/refs/tags/${tagName}`,
               method: "DELETE",
             });
           } catch (error) {
