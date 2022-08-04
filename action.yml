@@ -10,9 +10,12 @@ inputs:
   keep_latest:
     description: how many latest releases to keep
     required: true
-  repo:
-    description: repo name in the form of <owner>/<repoName>
-    required: false
+  owner:
+    description: owner/organization name of the repository
+    required: true
+  repos:
+    description: repositories names separated by commas. Example repo1,repo2,repo3
+    required: true
   delete_tags:
     description: whether to delete tags associated to older releases or not
     required: false
